@@ -1,6 +1,69 @@
-import { Heart, Users, Search, CheckCircle, ArrowRight, Stethoscope, UserCheck } from 'lucide-react';
+'use client';
+
+import { useState } from 'react';
+import { Heart, Users, Search, CheckCircle, ArrowRight, Stethoscope, UserCheck, ChevronDown, ChevronUp } from 'lucide-react';
+
+function FAQItem({ question, answer }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border border-gray-200 rounded-lg overflow-hidden">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-6 py-4 flex justify-between items-center bg-white hover:bg-gray-50 transition"
+      >
+        <span className="font-semibold text-left text-gray-900">{question}</span>
+        {isOpen ? (
+          <ChevronUp className="w-5 h-5 text-blue-600 flex-shrink-0" />
+        ) : (
+          <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
+        )}
+      </button>
+      {isOpen && (
+        <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
+          <p className="text-gray-700">{answer}</p>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Home() {
+  const faqData = [
+    {
+      question: "Apakah perawatan di PasienGigi.id benar-benar gratis?",
+      answer: "Ya, 100% gratis! Mahasiswa FKG membutuhkan pasien untuk memenuhi syarat praktek klinik mereka, sehingga semua perawatan tidak dipungut biaya. Perawatan dilakukan di klinik kampus di bawah supervisi dosen pembimbing."
+    },
+    {
+      question: "Apakah mahasiswa FKG yang terdaftar sudah terverifikasi?",
+      answer: "Tentu! Semua mahasiswa yang mendaftar harus melalui proses verifikasi dengan mengunggah Kartu Tanda Mahasiswa (KTM) dan surat keterangan dari kampus. Tim kami akan memverifikasi setiap akun sebelum diaktifkan."
+    },
+    {
+      question: "Berapa lama waktu yang dibutuhkan untuk mendapat pasien/mahasiswa?",
+      answer: "Tergantung lokasi dan jenis kasus. Biasanya dalam 1-7 hari Anda akan mendapatkan match. Lokasi di kota besar cenderung lebih cepat karena lebih banyak pengguna."
+    },
+    {
+      question: "Jenis perawatan apa saja yang tersedia?",
+      answer: "Beragam, mulai dari scaling (pembersihan karang gigi), tambal gigi, pencabutan gigi, perawatan saluran akar, pembuatan gigi tiruan, hingga perawatan ortodonti (behel). Tergantung kebutuhan mahasiswa dan kondisi pasien."
+    },
+    {
+      question: "Apakah aman? Bagaimana dengan privasi data saya?",
+      answer: "Sangat aman! Kami menggunakan enkripsi untuk melindungi data Anda. Foto dan informasi pribadi hanya bisa diakses oleh mahasiswa yang ter-match dengan Anda. Kami tidak membagikan data Anda ke pihak ketiga."
+    },
+    {
+      question: "Saya mahasiswa FKG, bagaimana cara memulai?",
+      answer: "Mudah! Daftar akun, verifikasi dengan KTM, lalu posting kebutuhan pasien Anda (jenis kasus, lokasi, jadwal). Sistem akan mencocokkan dengan pasien yang sesuai dan Anda akan mendapat notifikasi."
+    },
+    {
+      question: "Saya pasien, apakah harus datang ke kampus untuk perawatan?",
+      answer: "Ya, perawatan dilakukan di klinik kampus FKG untuk memastikan kualitas dan keamanan. Mahasiswa akan memberikan informasi lokasi dan jadwal yang bisa Anda sesuaikan."
+    },
+    {
+      question: "Apakah ada biaya pendaftaran?",
+      answer: "Tidak ada! Pendaftaran di PasienGigi.id 100% gratis untuk mahasiswa maupun pasien. Kami berkomitmen untuk menyediakan platform ini tanpa biaya apapun."
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
       {/* Navigation */}
@@ -15,6 +78,7 @@ export default function Home() {
               <a href="#tentang" className="text-gray-700 hover:text-blue-600 transition">Tentang</a>
               <a href="#cara-kerja" className="text-gray-700 hover:text-blue-600 transition">Cara Kerja</a>
               <a href="#fitur" className="text-gray-700 hover:text-blue-600 transition">Fitur</a>
+              <a href="#faq" className="text-gray-700 hover:text-blue-600 transition">FAQ</a>
             </div>
             <div className="flex space-x-4">
               <button className="px-4 py-2 text-blue-600 hover:text-blue-700 font-medium transition">
@@ -238,16 +302,28 @@ export default function Home() {
         </div>
       </section>
 
-     {/*membuat FAQ Section*/}
-      <section className="fpy-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">FAQ</h2>
-          <p className="text-xl text-gray-600">Bagian ini akan segera hadir. Nantikan informasi lebih lanjut!</p>
+      {/* FAQ Section */}
+      <section id="faq" className="bg-white py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Pertanyaan yang Sering Diajukan</h2>
+            <p className="text-xl text-gray-600">Temukan jawaban untuk pertanyaan Anda</p>
+          </div>
+          <div className="space-y-4">
+            {faqData.map((faq, index) => (
+              <FAQItem key={index} question={faq.question} answer={faq.answer} />
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <p className="text-gray-600 mb-4">Masih ada pertanyaan?</p>
+            <button className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md">
+              Hubungi Kami
+            </button>
+          </div>
         </div>
-
-            
-
       </section>
+
+      
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
@@ -273,7 +349,7 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">Bantuan</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition">FAQ</a></li>
+                <li><a href="#faq" className="hover:text-white transition">FAQ</a></li>
                 <li><a href="#" className="hover:text-white transition">Kontak</a></li>
                 <li><a href="#" className="hover:text-white transition">Syarat & Ketentuan</a></li>
               </ul>
