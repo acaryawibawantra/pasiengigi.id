@@ -257,86 +257,87 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       
 
-      {/* Fitur Section */}
+            {/* Fitur Section */}
       <section id="fitur" className="py-12 sm:py-20 bg-gradient-to-b from-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Fitur Unggulan</h2>
             <p className="text-lg sm:text-xl text-gray-600">Platform lengkap untuk kebutuhan Anda</p>
           </div>
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              {
-                icon: <Search className="w-6 h-6 sm:w-8 sm:h-8" />,
-                title: "Smart Matching",
-                description: "Algoritma cerdas mencocokkan mahasiswa dengan pasien berdasarkan kebutuhan dan lokasi",
-                color: "blue"
-              },
-              {
-                icon: <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8" />,
-                title: "Verifikasi Terpercaya",
-                description: "Semua mahasiswa terverifikasi dengan KTM dan surat keterangan kampus",
-                color: "green"
-              },
-              {
-                icon: <Users className="w-6 h-6 sm:w-8 sm:h-8" />,
-                title: "Komunitas Aktif",
-                description: "Bergabung dengan ribuan mahasiswa FKG dan pasien di seluruh Indonesia",
-                color: "purple"
-              },
-              {
-                icon: <Heart className="w-6 h-6 sm:w-8 sm:h-8" />,
-                title: "Perawatan Gratis",
-                description: "Pasien mendapat perawatan berkualitas tanpa biaya, di bawah supervisi dosen",
-                color: "pink"
-              },
-              {
-                icon: <Stethoscope className="w-6 h-6 sm:w-8 sm:h-8" />,
-                title: "Beragam Kasus",
-                description: "Dari scaling, tambal gigi, cabut gigi, hingga perawatan saluran akar",
-                color: "teal"
-              },
-              {
-                icon: <UserCheck className="w-6 h-6 sm:w-8 sm:h-8" />,
-                title: "Mudah Digunakan",
-                description: "Interface sederhana dan intuitif, siapa saja bisa menggunakan",
-                color: "indigo"
-              }
-            ].map((feature, index) => (
-              <div key={index} className="bg-white rounded-xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition">
-                <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-${feature.color}-100 rounded-lg flex items-center justify-center mb-3 sm:mb-4 text-${feature.color}-600`}>
-                  {feature.icon}
-                </div>
-                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                <p className="text-gray-600 text-sm sm:text-base">{feature.description}</p>
+            {/* Smart Matching — sembunyikan di mobile */}
+            <div className="hidden sm:block bg-white rounded-xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-blue-100 rounded-lg flex items-center justify-center mb-3 sm:mb-4 text-blue-600">
+                <Search className="w-6 h-6 sm:w-8 sm:h-8" />
               </div>
-            ))}
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Smart Matching</h3>
+              <p className="text-gray-600 text-sm sm:text-base">
+                Algoritma cerdas mencocokkan mahasiswa dengan pasien berdasarkan kebutuhan dan lokasi
+              </p>
+            </div>
+
+            {/* Verifikasi Terpercaya */}
+            <div className="bg-white rounded-xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-green-100 rounded-lg flex items-center justify-center mb-3 sm:mb-4 text-green-600">
+                <CheckCircle className="w-6 h-6 sm:w-8 sm:h-8" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Verifikasi Terpercaya</h3>
+              <p className="text-gray-600 text-sm sm:text-base">
+                Semua mahasiswa terverifikasi dengan KTM dan surat keterangan kampus
+              </p>
+            </div>
+
+            {/* Komunitas Aktif */}
+            <div className="bg-white rounded-xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-purple-100 rounded-lg flex items-center justify-center mb-3 sm:mb-4 text-purple-600">
+                <Users className="w-6 h-6 sm:w-8 sm:h-8" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Komunitas Aktif</h3>
+              <p className="text-gray-600 text-sm sm:text-base">
+                Bergabung dengan ribuan mahasiswa FKG dan pasien di seluruh Indonesia
+              </p>
+            </div>
+
+            {/* Perawatan Gratis */}
+            <div className="bg-white rounded-xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-pink-100 rounded-lg flex items-center justify-center mb-3 sm:mb-4 text-pink-600">
+                <Heart className="w-6 h-6 sm:w-8 sm:h-8" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Perawatan Gratis</h3>
+              <p className="text-gray-600 text-sm sm:text-base">
+                Pasien mendapat perawatan berkualitas tanpa biaya, di bawah supervisi dosen
+              </p>
+            </div>
+
+            {/* Beragam Kasus */}
+            <div className="bg-white rounded-xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-teal-100 rounded-lg flex items-center justify-center mb-3 sm:mb-4 text-teal-600">
+                <Stethoscope className="w-6 h-6 sm:w-8 sm:h-8" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Beragam Kasus</h3>
+              <p className="text-gray-600 text-sm sm:text-base">
+                Dari scaling, tambal gigi, cabut gigi, hingga perawatan saluran akar
+              </p>
+            </div>
+
+            {/* Mudah Digunakan — sembunyikan di mobile */}
+            <div className="hidden sm:block bg-white rounded-xl p-5 sm:p-6 shadow-lg hover:shadow-xl transition">
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-indigo-100 rounded-lg flex items-center justify-center mb-3 sm:mb-4 text-indigo-600">
+                <UserCheck className="w-6 h-6 sm:w-8 sm:h-8" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Mudah Digunakan</h3>
+              <p className="text-gray-600 text-sm sm:text-base">
+                Interface sederhana dan intuitif, siapa saja bisa menggunakan
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-teal-600 py-12 sm:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">
-            Siap Bergabung dengan PasienGigi.id?
-          </h2>
-          <p className="text-lg sm:text-xl text-blue-100 mb-6 sm:mb-8">
-            Ribuan mahasiswa dan pasien sudah bergabung. Ayo mulai sekarang!
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition shadow-lg text-base sm:text-lg font-medium">
-              Daftar Sebagai Mahasiswa
-            </button>
-            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition shadow-lg text-base sm:text-lg font-medium">
-              Daftar Sebagai Pasien
-            </button>
-          </div>
-        </div>
-      </section>
+
 
       {/* FAQ Section */}
       <section id="faq" className="bg-white py-12 sm:py-20">
@@ -399,7 +400,7 @@ export default function Home() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400 text-sm sm:text-base">
-            <p>&copy; 2024 PasienGigi.id. All rights reserved.</p>
+            <p>&copy; 2026 PasienGigi.id. All rights reserved.</p>
           </div>
         </div>
       </footer>
