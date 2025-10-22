@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Heart, Users, Search, CheckCircle, ArrowRight, Stethoscope, UserCheck, ChevronDown, ChevronUp, Menu, X } from 'lucide-react';
+import Link from "next/link";
 
 function FAQItem({ question, answer }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -87,12 +88,18 @@ export default function Home() {
             
             {/* Desktop Buttons */}
             <div className="hidden md:flex space-x-4">
-              <button className="px-4 py-2 text-blue-600 hover:text-blue-700 font-medium transition">
+              <Link
+                href="/login"
+                className="px-4 py-2 text-blue-600 hover:text-blue-700 font-medium transition"
+              >
                 Masuk
-              </button>
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md">
+              </Link>
+              <Link
+                href="/register"
+                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md"
+              >
                 Daftar
-              </button>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -114,10 +121,14 @@ export default function Home() {
                 <a href="#faq" className="text-gray-700 hover:text-blue-600 transition px-4 py-2">FAQ</a>
                 <div className="flex flex-col space-y-2 px-4 pt-2">
                   <button className="w-full py-2 text-blue-600 hover:text-blue-700 font-medium transition">
-                    Masuk
+                    <Link href="/login">
+                      Masuk
+                    </Link>
                   </button>
                   <button className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-md">
-                    Daftar
+                    <Link href="/register">
+                       Daftar
+                    </Link>
                   </button>
                 </div>
               </div>
@@ -141,11 +152,15 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-lg flex items-center justify-center space-x-2 text-base sm:text-lg font-medium">
+                <Link href="/login">
                 <span className="whitespace-nowrap">Saya Mahasiswa FKG</span>
+                </Link>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
               </button>
               <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition shadow-lg flex items-center justify-center space-x-2 text-base sm:text-lg font-medium">
+                <Link href="/register">
                 <span className="whitespace-nowrap">Saya Butuh Perawatan</span>
+                </Link>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
               </button>
             </div>
@@ -257,7 +272,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
 
             {/* Fitur Section */}
       <section id="fitur" className="py-12 sm:py-20 bg-gradient-to-b from-blue-50 to-white">
@@ -337,7 +351,24 @@ export default function Home() {
         </div>
       </section>
 
-
+      <section className="bg-gradient-to-r from-blue-600 to-teal-600 py-12 sm:py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4 sm:mb-6">
+            Siap Bergabung dengan PasienGigi.id?
+          </h2>
+          <p className="text-lg sm:text-xl text-blue-100 mb-6 sm:mb-8">
+            Ribuan mahasiswa dan pasien sudah bergabung. Ayo mulai sekarang!
+          </p>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition shadow-lg text-base sm:text-lg font-medium">
+              Daftar Sebagai Mahasiswa
+            </button>
+            <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition shadow-lg text-base sm:text-lg font-medium">
+              Daftar Sebagai Pasien
+            </button>
+          </div>
+        </div>
+      </section>
 
       {/* FAQ Section */}
       <section id="faq" className="bg-white py-12 sm:py-20">
