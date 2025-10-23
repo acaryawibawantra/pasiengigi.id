@@ -152,13 +152,13 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-lg flex items-center justify-center space-x-2 text-base sm:text-lg font-medium">
-                <Link href="/login">
+                <Link href="/register/mahasiswa">
                 <span className="whitespace-nowrap">Saya Mahasiswa FKG</span>
                 </Link>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
               </button>
               <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition shadow-lg flex items-center justify-center space-x-2 text-base sm:text-lg font-medium">
-                <Link href="/register">
+                <Link href="/register/pasien">
                 <span className="whitespace-nowrap">Saya Butuh Perawatan</span>
                 </Link>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
@@ -361,10 +361,14 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition shadow-lg text-base sm:text-lg font-medium">
-              Daftar Sebagai Mahasiswa
+              <Link href="/register/mahasiswa">
+                Daftar Sebagai Mahasiswa FKG
+              </Link>
             </button>
             <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition shadow-lg text-base sm:text-lg font-medium">
-              Daftar Sebagai Pasien
+              <Link href="/register/pasien">
+                Daftar Sebagai Pasien
+              </Link>
             </button>
           </div>
         </div>
