@@ -9,8 +9,8 @@ export default function MyComplaintsPage() {
   const [myComplaints, setMyComplaints] = useState([
     {
       id: 1,
-      complaint: 'Gigi Berlubang (Karies)',
-      description: 'Gigi geraham kanan atas berlubang cukup besar. Terasa sakit saat makan makanan manis dan minuman dingin.',
+      complaint: 'KEKRUANGAN GIGI',
+      description: 'GIGI SAYA CUMA SISA 16 DOG!.',
       urgency: 'high',
       hasPhoto: true,
       status: 'active', // active, matched, completed
