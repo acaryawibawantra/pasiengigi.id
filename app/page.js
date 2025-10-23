@@ -151,18 +151,17 @@ export default function Home() {
               Solusi untuk mahasiswa dokter gigi yang membutuhkan pasien praktek, dan masyarakat yang ingin perawatan gigi gratis berkualitas.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <Link href="/register/mahasiswa">
               <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow-lg flex items-center justify-center space-x-2 text-base sm:text-lg font-medium">
-                <Link href="/register/mahasiswa">
                 <span className="whitespace-nowrap">Saya Mahasiswa FKG</span>
-                </Link>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
               </button>
+              </Link>
+              <Link href="/register/pasien">
               <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition shadow-lg flex items-center justify-center space-x-2 text-base sm:text-lg font-medium">
-                <Link href="/register/pasien">
                 <span className="whitespace-nowrap">Saya Butuh Perawatan</span>
-                </Link>
                 <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-              </button>
+              </button></Link>
             </div>
             <div className="grid grid-cols-3 gap-4 pt-4">
               <div className="text-center">
