@@ -109,7 +109,7 @@ export default function RegisterPasienPage() {
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 text-gray-900 placeholder:text-gray-400 focus:ring-teal-500 focus:border-teal-500 transition"
                   placeholder="Masukkan nama lengkap"
                   required
                 />
@@ -127,7 +127,7 @@ export default function RegisterPasienPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 text-gray-900 placeholder:text-gray-400 focus:ring-teal-500 focus:border-teal-500 transition"
                     placeholder="nama@email.com"
                     required
                   />
@@ -146,7 +146,7 @@ export default function RegisterPasienPage() {
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 text-gray-900 placeholder:text-gray-400 focus:ring-teal-500 focus:border-teal-500 transition"
                     placeholder="08xxxxxxxxxx"
                     required
                   />
@@ -183,7 +183,7 @@ export default function RegisterPasienPage() {
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                    className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 text-gray-900 placeholder:text-gray-400 focus:ring-teal-500 focus:border-teal-500 transition"
                     placeholder="Minimal 8 karakter"
                     required
                   />
@@ -213,7 +213,7 @@ export default function RegisterPasienPage() {
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
-                    className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                    className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 text-gray-900 placeholder:text-gray-400 focus:ring-teal-500 focus:border-teal-500 transition"
                     placeholder="Ulangi password"
                     required
                   />
@@ -246,7 +246,7 @@ export default function RegisterPasienPage() {
                 value={formData.address}
                 onChange={handleInputChange}
                 rows="3"
-                className="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                className="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 text-gray-900 placeholder:text-gray-400 focus:ring-teal-500 focus:border-teal-500 transition"
                 placeholder="Alamat lengkap Anda"
                 required
               />
@@ -255,7 +255,7 @@ export default function RegisterPasienPage() {
                 name="city"
                 value={formData.city}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 text-gray-900 placeholder:text-gray-400 focus:ring-teal-500 focus:border-teal-500 transition"
                 required
               >
                 <option value="">Pilih Kota</option>
@@ -271,14 +271,14 @@ export default function RegisterPasienPage() {
             {/* === Keluhan Gigi === */}
             <div>
               <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center">
-                <FileText className="w-5 h-5 mr-2 text-teal-600" /> Keluhan Gigi
+                <FileText className="w-5 h-5 mr-2 text-gray-900 placeholder:text-gray-400 text-teal-600" /> Keluhan Gigi
               </h3>
 
               <select
                 name="complaint"
                 value={formData.complaint}
                 onChange={handleInputChange}
-                className="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                className="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 text-gray-900 placeholder:text-gray-400 focus:ring-teal-500 focus:border-teal-500 transition"
                 required
               >
                 <option value="">Pilih Keluhan</option>
@@ -292,7 +292,7 @@ export default function RegisterPasienPage() {
                 value={formData.complaintDetails}
                 onChange={handleInputChange}
                 rows="4"
-                className="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition"
+                className="w-full mb-4 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 text-gray-900 placeholder:text-gray-400 focus:ring-teal-500 focus:border-teal-500 transition"
                 placeholder="Jelaskan keluhan Anda secara detail"
                 required
               />
