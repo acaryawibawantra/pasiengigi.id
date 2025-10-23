@@ -359,16 +359,16 @@ export default function Home() {
             Ribuan mahasiswa dan pasien sudah bergabung. Ayo mulai sekarang!
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+            <Link href="/register/mahasiswa">
             <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition shadow-lg text-base sm:text-lg font-medium">
-              <Link href="/register/mahasiswa">
                 Daftar Sebagai Mahasiswa FKG
-              </Link>
             </button>
+            </Link>
+            <Link href="/register/pasien">
             <button className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-teal-500 text-white rounded-lg hover:bg-teal-600 transition shadow-lg text-base sm:text-lg font-medium">
-              <Link href="/register/pasien">
                 Daftar Sebagai Pasien
-              </Link>
             </button>
+            </Link>
           </div>
         </div>
       </section>
