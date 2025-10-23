@@ -12,10 +12,14 @@ export default function LoginPage() {
   });
 
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Nanti akan dikoneksikan dengan backend
-    console.log('Login attempt:', formData);
-    alert('Login functionality akan diintegrasikan dengan backend!');
+  e.preventDefault();
+  
+  // Nanti akan dikoneksikan dengan backend
+  console.log('Login attempt:', formData);
+  
+  // Temporary redirect (nanti ganti dengan logic dari backend)
+  // Redirect ke dashboard mahasiswa atau pasien berdasarkan role
+  window.location.href = '/dashboard/mahasiswa'; // atau '/dashboard/pasien'
   };
 
   return (
