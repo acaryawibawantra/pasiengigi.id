@@ -1,11 +1,37 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Heart, Stethoscope, UserCheck, ArrowLeft, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function RegisterPage() {
   const [userType, setUserType] = useState(null); // 'mahasiswa' or 'pasien'
+  const [isMobile, setIsMobile] = useState(false);
+  const router = useRouter();
+
+  // Detect mobile screen size
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Handle user type selection
+  const handleUserTypeSelect = (type) => {
+    setUserType(type);
+    
+    // Auto redirect on mobile
+    if (isMobile) {
+      const redirectPath = type === 'mahasiswa' ? '/register/mahasiswa' : '/register/pasien';
+      router.push(redirectPath);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-teal-50 flex items-center justify-center px-5 py-8">
@@ -33,7 +59,7 @@ export default function RegisterPage() {
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           {/* Mahasiswa Card */}
           <div 
-            onClick={() => setUserType('mahasiswa')}
+            onClick={() => handleUserTypeSelect('mahasiswa')}
             className={`bg-white rounded-2xl shadow-xl p-6 sm:p-8 cursor-pointer transition-all transform hover:scale-105 ${
               userType === 'mahasiswa' ? 'ring-4 ring-blue-500 shadow-2xl' : 'hover:shadow-2xl'
             }`}
@@ -75,7 +101,7 @@ export default function RegisterPage() {
 
           {/* Pasien Card */}
           <div 
-            onClick={() => setUserType('pasien')}
+            onClick={() => handleUserTypeSelect('pasien')}
             className={`bg-white rounded-2xl shadow-xl p-6 sm:p-8 cursor-pointer transition-all transform hover:scale-105 ${
               userType === 'pasien' ? 'ring-4 ring-teal-500 shadow-2xl' : 'hover:shadow-2xl'
             }`}
@@ -116,8 +142,8 @@ export default function RegisterPage() {
           </div>
         </div>
 
-        {/* Continue Button */}
-        {userType && (
+        {/* Continue Button - Only show on desktop */}
+        {userType && !isMobile && (
           <div className="text-center animate-fade-in">
             <Link 
               href={userType === 'mahasiswa' ? '/register/mahasiswa' : '/register/pasien'}
