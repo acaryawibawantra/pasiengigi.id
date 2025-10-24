@@ -104,14 +104,15 @@ export default function DashboardPasien() {
               <LayoutDashboard className="w-5 h-5" />
               <span>Dashboard</span>
             </Link>
-            <Link href="/dashboard/pasien/profile" className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg transition">
-              <UserCircle className="w-5 h-5" />
-              <span>Profil Saya</span>
-            </Link>
             {/* Tambah Keluhan */}
             <Link href="/dashboard/pasien/my-complaints" className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg transition">
               <FileText className="w-5 h-5" />
-              <span>Riwayat</span>
+              <span>Keluhan Saya</span>
+            </Link>
+            {/* Profil Saya */}
+            <Link href="/dashboard/pasien/profile" className="flex items-center space-x-3 px-4 py-3 text-gray-700 hover:bg-gray-50 rounded-lg transition">
+              <UserCircle className="w-5 h-5" />
+              <span>Profil Saya</span>
             </Link>
           </nav>
 
