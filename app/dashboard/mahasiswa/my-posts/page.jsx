@@ -42,12 +42,10 @@ export default function MyPostsPage() {
       interestedCount: 2
     }
   ]);
-
-  const handleDelete = (id) => {
-    if (confirm('Apakah Anda yakin ingin menghapus posting ini?')) {
-      setMyPosts(myPosts.filter(post => post.id !== id));
-      alert('Posting berhasil dihapus!');
-    }
+  const [toast, setToast] = useState({ visible: false, type: 'success', message: '' });
+  const showToast = (message, type = 'success') => {
+    setToast({ visible: true, type, message });
+    setTimeout(() => setToast(prev => ({ ...prev, visible: false })), 2000);
   };
 
   const getStatusBadge = (status) => {
@@ -80,6 +78,13 @@ export default function MyPostsPage() {
 
   const activePosts = myPosts.filter(p => p.status === 'active').length;
   const matchedPosts = myPosts.filter(p => p.status === 'matched').length;
+
+  const handleDelete = (id) => {
+    if (confirm('Apakah Anda yakin ingin menghapus posting ini?')) {
+      setMyPosts(myPosts.filter(post => post.id !== id));
+      showToast('Posting berhasil dihapus', 'success');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-5">
@@ -225,6 +230,15 @@ export default function MyPostsPage() {
           )}
         </div>
       </div>
+      {toast.visible && (
+        <div
+          className={`fixed bottom-6 right-6 px-4 py-3 rounded-lg shadow-lg text-white ${
+            toast.type === 'success' ? 'bg-green-600' : 'bg-red-600'
+          }`}
+        >
+          {toast.message}
+        </div>
+      )}
     </div>
   );
 }
